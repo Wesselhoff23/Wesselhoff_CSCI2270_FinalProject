@@ -21,7 +21,7 @@ int main()
 {
 
     ifstream in;
-    in.open("Assignment5Movies.txt");
+    in.open("Movies.txt");
     string line;
     HashTable* hashTable = new HashTable;
     while(getline(in, line))
