@@ -138,8 +138,8 @@ void HashTable::insertMovie(string in_title, int year, string in_genre, int in_r
 Movie* HashTable::findMovie(string title) // done
 {
      /* 
--    Prototype: 
--    Description:
+-    Prototype: findMovie(string);
+-    Description: 
 -    How to Call: 
 -    pre-conditions:
 -    post-conditions:
