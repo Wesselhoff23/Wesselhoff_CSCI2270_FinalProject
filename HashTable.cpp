@@ -49,8 +49,8 @@ HashTable::~HashTable()
 int HashTable::hashSum(string title)
 {
      /* 
--    Prototype: hashSum()
--    Description:
+-    Prototype: hashSum(string);
+-    Description: 
 -    How to Call: 
 -    pre-conditions:
 -    post-conditions:
@@ -69,11 +69,11 @@ int HashTable::hashSum(string title)
 void HashTable::insertMovie(string in_title, int year, string in_genre, int in_rating, int in_quantity) // done
 {
      /* 
--    Prototype: 
--    Description:
+-    Prototype: insertMovie(string, int, string, int, int);
+-    Description: This method is used to create the hashTable and insert values into the already created table. It also sorts the nodes in the linked lists.
 -    How to Call: 
--    pre-conditions:
--    post-conditions:
+-    pre-conditions: insertMovie(string, int, string, int, int), takes in only this order. 
+-    post-conditions: inserts the newly created node into the hashtable in the proper place
 -    */
     bool check = true;
     int sum = hashSum(in_title);
