@@ -278,14 +278,6 @@ void HashTable::printTopRated()
             if(hashTable[i]->rating <= 10)
             {
                 vect.push_back(hashTable[i]);
-                cout<<"======================"<<endl;
-                cout<<"Title: "<<hashTable[i]->title<<endl;
-                cout<<"Year: "<<hashTable[i]->year<<endl;
-                cout<<"Genre: "<<hashTable[i]->genre<<endl;
-                cout<<"Rating: "<<hashTable[i]->rating<<endl;
-                cout<<"Quantity: "<<hashTable[i]->quantity<<endl;
-                cout<<"======================"<<endl;
-                cout<<endl;
                 counter++;
             }
             while(temp != NULL)
@@ -293,13 +285,6 @@ void HashTable::printTopRated()
                 if(temp->rating <= 10)
                 {
                     vect.push_back(temp);
-                    cout<<"======================"<<endl;
-                    cout<<"Title: "<<temp->title<<endl;
-                    cout<<"Year: "<<temp->year<<endl;
-                    cout<<"Genre: "<<temp->genre<<endl;
-                    cout<<"Rating: "<<temp->rating<<endl;
-                    cout<<"Quantity: "<<temp->quantity<<endl;
-                    cout<<"======================"<<endl;
                     cout<<endl;
 
                     counter++;
