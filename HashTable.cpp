@@ -9,7 +9,7 @@ using namespace std;
 HashTable::HashTable()
 {
      /* 
--    Prototype: HashTable();
+-    Prototype: Hashtable::HashTable();
 -    Description: This is the constructor method for the HashTable. It sets all the items in the hashtable to NULL or "empty"
 -    How to Call: this method is called when the class is created
 -    pre-conditions: none
@@ -29,9 +29,9 @@ HashTable::HashTable()
 HashTable::~HashTable()
 {
      /* 
--    Prototype: ~HashTable();
+-    Prototype:Thashtable:: ~HashTable();
 -    Description: This is the destructor
--    How to Call: 
+-    How to Call: N/A
 -    pre-conditions: Must have a hashtable built
 -    post-conditions:every hash value of the hashtable will be deleted from the table
 -    */
@@ -49,9 +49,10 @@ HashTable::~HashTable()
 int HashTable::hashSum(string title)
 {
      /* 
--    Prototype: hashSum(string);
+-    Prototype: int Hashtable::hashSum(string);
 -    Description: Will take the titles of each movie and convert them into a hash value, then insert them into the hashtable based on that value
--    How to Call: input desired string to hash as the parameter
+-    Example: HashTable ht;
+              ht.hashSum("Shawshank Redemption");
 -    pre-conditions: must have a text file or movie name to input into the function
 -    post-conditions: will take the title as an input and insert it into the hashtable based on it's hash value
 -    */
@@ -69,9 +70,10 @@ int HashTable::hashSum(string title)
 void HashTable::insertMovie(string in_title, int year, string in_genre, int in_rating, int in_quantity) // done
 {
      /* 
--    Prototype: insertMovie(string, int, string, int, int);
+-    Prototype: void Hashtable::insertMovie(string, int, string, int, int);
 -    Description: This method is used to create the hashTable and insert values into the already created table. It also sorts the nodes in the linked lists.
--    How to Call: 
+-    Example: HashTable ht;
+              ht.insertMovie("Ted", 2014, Comedy, 1, 100,000,000)
 -    pre-conditions: insertMovie(string, int, string, int, int), takes in only this order. 
 -    post-conditions: inserts the newly created node into the hashtable in the proper place
 -    */
@@ -138,11 +140,13 @@ void HashTable::insertMovie(string in_title, int year, string in_genre, int in_r
 Movie* HashTable::findMovie(string title) // done
 {
      /* 
--    Prototype: findMovie(string);
--    Description: 
--    How to Call: 
--    pre-conditions:
--    post-conditions:
+-    Prototype: Movie* Hashtable::findMovie(string);
+-    Description: This method finds the hashsum for the input string, and searches through the linked list for the hashsum value and 
+     if the value is found, it returns the key info
+-    Example: HashTable ht;
+	      ht.findMovie("Ted")
+-    pre-conditions: takes only  string as  parameter
+-    post-conditions: returns the key associated with the string 
 -    */
     int index = hashSum(title);
     Movie *x = new Movie;
@@ -175,11 +179,13 @@ Movie* HashTable::findMovie(string title) // done
 void HashTable::deleteMovie(string in_title) // done
 {
      /* 
--    Prototype: 
--    Description:
--    How to Call: 
--    pre-conditions:
--    post-conditions:
+-    Prototype: void Hashtable::deleteMovie(string); 
+-    Description:This method finds the hashsum for the input string, and searches through the linked list for the hashsum value and 
+     if the value is found, it deletes the key info
+-    Example: HashTable ht;
+	      ht.deleteMovie("Ted")
+-    pre-conditions: Takes in the desired string to delete in the created hashtable
+-    post-conditions: Deletes the selected node and frees up that section of the memory
 -    */
     int sum = hashSum(in_title);
     Movie* x = new Movie;
@@ -214,11 +220,12 @@ void HashTable::deleteMovie(string in_title) // done
 void HashTable::printInventory()
 {
      /* 
--    Prototype: 
--    Description:
--    How to Call: 
--    pre-conditions:
--    post-conditions:
+-    Prototype: void Hashtable::printInventory()
+-    Description:prints all the movies in the hashtable
+-    Example:HashTable ht;
+	     ht.printInventory()
+-    pre-conditions:already has a created hashtable
+-    post-conditions:will print out every node of the hashtable
 -    */
     bool emp = true;
     int counter = 0;
@@ -265,11 +272,12 @@ void HashTable::printInventory()
 void HashTable::printOneGenre(string genre)
 {
      /* 
--    Prototype: 
--    Description:
--    How to Call: 
--    pre-conditions:
--    post-conditions:
+-    Prototype: void Hashtable::printOneGenre(string genre)
+-    Description:Prints only selected movies of the desired genre
+-    Example: HashTable ht;
+	     ht.PrintOneGenre("Action")
+-    pre-conditions:hashtable with movies that have genres, parameter of desired genre
+-    post-conditions: Will print out movies of the desired genre
 -    */
     bool emp = true;
     int counter = 0;
@@ -319,11 +327,12 @@ void HashTable::printOneGenre(string genre)
 void HashTable::printTopRated()
 {
      /* 
--    Prototype: 
--    Description:
--    How to Call: 
--    pre-conditions:
--    post-conditions:
+-    Prototype: void Hashtable::printTopRated()
+-    Description:will print out the top 10 rated movies in the hashtable
+-    Example: HashTable ht;
+	      ht.printTopRated()
+-    pre-conditions: created hash table with movies that have been rated
+-    post-conditions: wll print out the top 10 rated movies in the hashtable
 -    */
      bool emp = true;
     int counter = 0;
@@ -376,11 +385,11 @@ void HashTable::printTopRated()
 void HashTable::sortByRating(vector<Movie*> vect, int n)
 {
      /* 
--    Prototype: 
--    Description:
--    How to Call: 
--    pre-conditions:
--    post-conditions:
+-    Prototype: void Hashtable::sortByRating(vector<Movie*> vect, int n)
+-    Description: Takes in a vector containing the top 10 movies and will sort them into 1-10
+-    Example: sortByRating(<vector>, int)
+-    pre-conditions: Called in the printtopRated function
+-    post-conditions: sorts vector into numerical order
 -    */
     int minIndex;
     Movie* tmp;
