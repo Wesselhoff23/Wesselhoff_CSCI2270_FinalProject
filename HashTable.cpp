@@ -11,7 +11,7 @@ HashTable::HashTable()
      /* 
 -    Prototype: HashTable();
 -    Description: This is the constructor method for the HashTable. It sets all the items in the hashtable to NULL or "empty"
--    How to Call: 
+-    How to Call: this method is called when the class is created
 -    pre-conditions: none
 -    post-conditions: none
 -    */
@@ -49,7 +49,7 @@ HashTable::~HashTable()
 int HashTable::hashSum(string title)
 {
      /* 
--    Prototype: 
+-    Prototype: hashSum()
 -    Description:
 -    How to Call: 
 -    pre-conditions:
