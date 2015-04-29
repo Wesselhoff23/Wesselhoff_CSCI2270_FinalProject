@@ -8,13 +8,6 @@ using namespace std;
 
 HashTable::HashTable()
 {
-    /* 
-    Prototype: 
-    Description:
-    How to Call: 
-    pre-conditions:
-    post-conditions:
-    */
     for(int i = 0; i< TableSize; i++)
     {
         hashTable[i] = new Movie;
@@ -28,13 +21,6 @@ HashTable::HashTable()
 
 HashTable::~HashTable()
 {
-    /* 
-    Prototype: ~HashTable();
-    Description: Desctructor method for the HashTable class. It loops through all values in the hashTable and deletes them
-    How to Call: 
-    pre-conditions:
-    post conditions:
-    */
     for(int i = 0; i< TableSize; i++)
     {
         Movie* temp = hashTable[i]->next;
@@ -48,13 +34,6 @@ HashTable::~HashTable()
 
 int HashTable::hashSum(string title)
 {
-    /* 
-    Prototype: 
-    Description:
-    How to Call: 
-    pre-conditions:
-    post-conditions:
-    */
     int sum = 0;
     char letter;
     for(int i = 0;i<title.length();i++)
@@ -68,13 +47,6 @@ int HashTable::hashSum(string title)
 
 void HashTable::insertMovie(string in_title, int year, string in_genre, int in_rating, int in_quantity) // done
 {
-    /* 
-    Prototype: 
-    Description:
-    How to Call: 
-    pre-conditions:
-    post-conditions:
-    */
     bool check = true;
     int sum = hashSum(in_title);
     Movie *m = new Movie(in_title, year, in_genre, in_rating, in_quantity);
@@ -137,13 +109,6 @@ void HashTable::insertMovie(string in_title, int year, string in_genre, int in_r
 
 Movie* HashTable::findMovie(string title) // done
 {
-    /* 
-    Prototype: 
-    Description:
-    How to Call: 
-    pre-conditions:
-    post-conditions:
-    */
     int index = hashSum(title);
     Movie *x = new Movie;
     bool found = true;
@@ -174,13 +139,6 @@ Movie* HashTable::findMovie(string title) // done
 
 void HashTable::deleteMovie(string in_title) // done
 {
-    /* 
-    Prototype: 
-    Description:
-    How to Call: 
-    pre-conditions:
-    post-conditions:
-    */
     int sum = hashSum(in_title);
     Movie* x = new Movie;
     bool found = true;
@@ -213,13 +171,7 @@ void HashTable::deleteMovie(string in_title) // done
 
 void HashTable::printInventory()
 {
-    /* 
-    Prototype: 
-    Description:
-    How to Call: 
-    pre-conditions:
-    post-conditions:
-    */
+
     bool emp = true;
     int counter = 0;
     int counter2 = 0;
@@ -264,13 +216,6 @@ void HashTable::printInventory()
 
 void HashTable::printOneGenre(string genre)
 {
-    /* 
-    Prototype: 
-    Description:
-    How to Call: 
-    pre-conditions:
-    post-conditions:
-    */
     bool emp = true;
     int counter = 0;
     for(int i = 0; i< TableSize; i++)
@@ -318,14 +263,7 @@ void HashTable::printOneGenre(string genre)
 
 void HashTable::printTopRated()
 {
-    /* 
-    Prototype: 
-    Description:
-    How to Call: 
-    pre-conditions:
-    post-conditions:
-    */
-    bool emp = true;
+     bool emp = true;
     int counter = 0;
     vector<Movie*> vect;
     int n = 0;
@@ -347,7 +285,6 @@ void HashTable::printTopRated()
                 if(temp->rating <= 10)
                 {
                     vect.push_back(temp);
-                    cout<<endl;
 
                     counter++;
                 }
@@ -357,6 +294,7 @@ void HashTable::printTopRated()
         }
     }
     //cout<<counter<<endl;
+    cout<<endl;
     if(emp == true)
         cout<<"empty"<<endl;
 
@@ -367,10 +305,7 @@ void HashTable::printTopRated()
         Movie* temp = vect[i];
         cout<<"======================"<<endl;
         cout<<"Title: "<<temp->title<<endl;
-        cout<<"Year: "<<temp->year<<endl;
-        cout<<"Genre: "<<temp->genre<<endl;
         cout<<"Rating: "<<temp->rating<<endl;
-        cout<<"Quantity: "<<temp->quantity<<endl;
         cout<<"======================"<<endl;
         cout<<endl;
     }
@@ -378,16 +313,10 @@ void HashTable::printTopRated()
 
 void HashTable::sortByRating(vector<Movie*> vect, int n)
 {
-    /* 
-    Prototype: sortByRating(vector<Movie*>, int);
-    Description: This method
-    How to Call: 
-    pre-conditions: printTopRated() must be called first
-    post-conditions:  
-    */
     int minIndex;
-    int tmp;
-    for(int i = 0; i < n - 1; i++)
+    Movie* tmp;
+    //vector<Movie*> vect2;
+    for(int i = 0; i < n -1; i++)
     {
         minIndex = i;
         for(int j = i + 1; j < n; j++)
@@ -397,11 +326,10 @@ void HashTable::sortByRating(vector<Movie*> vect, int n)
         }
         if(minIndex != i)
         {
-            tmp = vect[i]->rating;
-            vect[i]->rating = vect[minIndex]->rating;
-            vect[minIndex]->rating = tmp;
+            //cout<<"in if"<<endl;
+            swap(vect[i]->rating, vect[minIndex]->rating);
+            swap(vect[i]->title, vect[minIndex]->title);
         }
+
     }
 }
-
-
