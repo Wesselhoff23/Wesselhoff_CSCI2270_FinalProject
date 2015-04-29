@@ -32,8 +32,8 @@ HashTable::~HashTable()
 -    Prototype: ~HashTable();
 -    Description: This is the destructor
 -    How to Call: 
--    pre-conditions:
--    post-conditions:
+-    pre-conditions: Must have a hashtable built
+-    post-conditions:every hash value of the hashtable will be deleted from the table
 -    */
     for(int i = 0; i< TableSize; i++)
     {
@@ -50,10 +50,10 @@ int HashTable::hashSum(string title)
 {
      /* 
 -    Prototype: hashSum(string);
--    Description: 
--    How to Call: 
--    pre-conditions:
--    post-conditions:
+-    Description: Will take the titles of each movie and convert them into a hash value, then insert them into the hashtable based on that value
+-    How to Call: input desired string to hash as the parameter
+-    pre-conditions: must have a text file or movie name to input into the function
+-    post-conditions: will take the title as an input and insert it into the hashtable based on it's hash value
 -    */
     int sum = 0;
     char letter;
