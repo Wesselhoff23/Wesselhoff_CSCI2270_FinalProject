@@ -1,0 +1,50 @@
+1,Shawshank Redemption,1994,45,Drama
+2,The Godfather,1972,34,Drama
+3,The Godfather: Part II,1974,12,Drama
+4,The Dark Knight,2008,90,Action
+5,Pulp Fiction,1994,34,Drama
+6,12 Angry Men,1957,56,Drama
+7,Schindler's List,1993,10,Drama
+8,The Good the Bad and the Ugly,1966,2,Western
+9,The Lord of the Rings: The Return of the King,2003,4,Fantasy
+10,Fight Club,1999,6,Drama
+11,The Lord of the Rings: The Fellowship of the Ring,2001,20,Fantasy
+12,Star Wars: Episode V,1980,12,Science Fiction
+13,Forrest Gump,1994,1,Comedy
+14,Inception,2010,10,Action
+15,One Flew Over the Cuckoo's Nest,1975,10,Comedy
+16,The Lord of the Rings: The Two Towers,2002,5,Fantasy
+17,Goodfellas,1990,5,Action
+18,The Matrix,1999,5,Action
+19,Star Wars: Episode IV,1977,6,Science Fiction
+20,Seven Samurai,1954,7,Action
+21,Interstellar,2014,8,Science Fiction
+22,City of God,2002,9,Drama
+23,Se7en,1995,11,Mystery
+24,The Usual Suspects,1995,2,Mystery
+25,The Silence of the Lambs,1991,19,Horror
+26,It's a Wonderful Life,1946,21,Drama
+27,Once Upon a Time in the West,1968,12,Western
+28,Leon: The Professional,1994,31,Drama
+29,Life Is Beautiful,1997,3,Drama
+30,Casablanca,1942,5,Drama
+31,Raiders of the Lost Ark,1981,6,Action
+32,American History X,1998,1,Drama
+33,Saving Private Ryan,1998,3,Action
+34,City Lights,1931,10,Drama
+35,Spirited Away,2001,10,Fantasy
+36,Psycho,1960,6,Horror
+37,Rear Window,1954,7,Drama
+38,Whiplash,2014,8,Drama
+39,The Intouchables,2011,3,Drama
+40,Modern Times,1936,9,Comedy
+41,Terminator 2: Judgment Day,1991,10,Action
+42,Memento,2000,9,Mystery
+43,The Green Mile,1999,8,Drama
+44,The Pianist,2002,7,Drama
+45,The Departed,2006,7,Horror
+46,Apocalypse Now,1979,5,Drama
+47,Sunset Blvd.,1950,5,Drama
+48,Gladiator,2000,5,Action
+49,Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb,1964,5,Science Fiction
+50,Back to the Future,1985,5,Action
