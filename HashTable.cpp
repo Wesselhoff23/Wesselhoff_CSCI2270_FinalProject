@@ -9,11 +9,11 @@ using namespace std;
 HashTable::HashTable()
 {
      /* 
--    Prototype: 
--    Description:
+-    Prototype: HashTable();
+-    Description: This is the constructor method for the HashTable. It sets all the items in the hashtable to NULL or "empty"
 -    How to Call: 
--    pre-conditions:
--    post-conditions:
+-    pre-conditions: none
+-    post-conditions: none
 -    */
     for(int i = 0; i< TableSize; i++)
     {
@@ -29,8 +29,8 @@ HashTable::HashTable()
 HashTable::~HashTable()
 {
      /* 
--    Prototype: 
--    Description:
+-    Prototype: ~HashTable();
+-    Description: This is the destructor
 -    How to Call: 
 -    pre-conditions:
 -    post-conditions:
