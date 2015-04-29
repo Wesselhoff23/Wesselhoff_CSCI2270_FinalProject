@@ -4,14 +4,14 @@ Project Summary: This project will take a text file of movies and make a hash ta
 
 How to Run: 
 
-Dependencies:
+Dependencies: none
 
-System Requirements: A computer
+System Requirements:
 
 Group Members: Dylan Edwards, Andrew Wesselhoff
 
 Contributors: Dylan Edwards, Andrew Wesselhoff
 
-Open Issues/bugs:
+Open Issues/bugs: The SortbyRating method only swaps the title and the rating, not the entire node
 
 
