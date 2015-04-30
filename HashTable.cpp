@@ -67,7 +67,7 @@ int HashTable::hashSum(string title)
     return sum;
 }
 
-void HashTable::insertMovie(string in_title, int year, string in_genre, int in_rating, int in_quantity) // done
+void HashTable::insertMovie(string in_title, int year, string in_genre, int in_ranking, int in_quantity) // done
 {
      /* 
 -    Prototype: void Hashtable::insertMovie(string, int, string, int, int);
@@ -79,14 +79,14 @@ void HashTable::insertMovie(string in_title, int year, string in_genre, int in_r
 -    */
     bool check = true;
     int sum = hashSum(in_title);
-    Movie *m = new Movie(in_title, year, in_genre, in_rating, in_quantity);
+    Movie *m = new Movie(in_title, year, in_genre, in_ranking, in_quantity);
     Movie *x = new Movie;
     if(hashTable[sum]->title == "empty")
     {
         hashTable[sum]->title = in_title;
         hashTable[sum]->year = year;
         hashTable[sum]->genre = in_genre;
-        hashTable[sum]->rating = in_rating;
+        hashTable[sum]->ranking = in_ranking;
         hashTable[sum]->quantity = in_quantity;
         hashTable[sum]->next = NULL;
         check = false;
@@ -100,13 +100,13 @@ void HashTable::insertMovie(string in_title, int year, string in_genre, int in_r
         m->year = hashTable[sum]->year;
         m->next = hashTable[sum]->next;
         m->genre = hashTable[sum]->genre;
-        m->rating = hashTable[sum]->rating;
+        m->ranking = hashTable[sum]->ranking;
         m->quantity = hashTable[sum]->quantity;
         hashTable[sum]->next = m;
         hashTable[sum]->title = in_title;
         hashTable[sum]->year = year;
         hashTable[sum]->genre = in_genre;
-        hashTable[sum]->rating = in_rating;
+        hashTable[sum]->ranking = in_ranking;
         hashTable[sum]->quantity = in_quantity;
         check = false;
 
@@ -168,7 +168,7 @@ Movie* HashTable::findMovie(string title) // done
         cout<<"Title: "<<hashTable[index]->title<<endl;
         cout<<"Year: "<<hashTable[index]->year<<endl;
         cout<<"Genre: "<<hashTable[index]->genre<<endl;
-        cout<<"Rating: "<<hashTable[index]->rating<<endl;
+        cout<<"Ranking: "<<hashTable[index]->ranking<<endl;
         cout<<"Quantity: "<<hashTable[index]->quantity<<endl;
         //cout<<index<<":"<<title<<":"<<x->year<<endl
     }
@@ -241,7 +241,7 @@ void HashTable::printInventory()
             cout<<"Title: "<<hashTable[i]->title<<endl;
             cout<<"Year: "<<hashTable[i]->year<<endl;
             cout<<"Genre: "<<hashTable[i]->genre<<endl;
-            cout<<"Rating: "<<hashTable[i]->rating<<endl;
+            cout<<"Ranking: "<<hashTable[i]->ranking<<endl;
             cout<<"Quantity: "<<hashTable[i]->quantity<<endl;
             cout<<"======================"<<endl;
             cout<<endl;
@@ -253,7 +253,7 @@ void HashTable::printInventory()
                 cout<<"Title: "<<temp->title<<endl;
                 cout<<"Year: "<<temp->year<<endl;
                 cout<<"Genre: "<<temp->genre<<endl;
-                cout<<"Rating: "<<temp->rating<<endl;
+                cout<<"Ranking: "<<temp->ranking<<endl;
                 cout<<"Quantity: "<<temp->quantity<<endl;
                 cout<<"======================"<<endl;
                 cout<<endl;
@@ -294,7 +294,7 @@ void HashTable::printOneGenre(string genre)
                 cout<<"Title: "<<hashTable[i]->title<<endl;
                 cout<<"Year: "<<hashTable[i]->year<<endl;
                 cout<<"Genre: "<<hashTable[i]->genre<<endl;
-                cout<<"Rating: "<<hashTable[i]->rating<<endl;
+                cout<<"Ranking: "<<hashTable[i]->ranking<<endl;
                 cout<<"Quantity: "<<hashTable[i]->quantity<<endl;
                 cout<<"======================"<<endl;
                 cout<<endl;
@@ -308,7 +308,7 @@ void HashTable::printOneGenre(string genre)
                     cout<<"Title: "<<temp->title<<endl;
                     cout<<"Year: "<<temp->year<<endl;
                     cout<<"Genre: "<<temp->genre<<endl;
-                    cout<<"Rating: "<<temp->rating<<endl;
+                    cout<<"Ranking: "<<temp->ranking<<endl;
                     cout<<"Quantity: "<<temp->quantity<<endl;
                     cout<<"======================"<<endl;
                     cout<<endl;
@@ -324,15 +324,15 @@ void HashTable::printOneGenre(string genre)
         cout<<"empty"<<endl;
 }
 
-void HashTable::printTopRated()
+void HashTable::printTopRanked()
 {
      /* 
--    Prototype: void Hashtable::printTopRated()
--    Description:will print out the top 10 rated movies in the hashtable
+-    Prototype: void Hashtable::printTopRanked()
+-    Description:will print out the top 10 ranked movies in the hashtable
 -    Example: HashTable ht;
-	      ht.printTopRated()
--    pre-conditions: created hash table with movies that have been rated
--    post-conditions: wll print out the top 10 rated movies in the hashtable
+	      ht.printTopRanked()
+-    pre-conditions: created hash table with movies that have been ranked
+-    post-conditions: wll print out the top 10 ranked movies in the hashtable
 -    */
      bool emp = true;
     int counter = 0;
@@ -345,15 +345,15 @@ void HashTable::printTopRated()
         {
             emp = false;
             Movie* temp = hashTable[i]->next;
-            temp->rating = hashTable[i]->next->rating;
-            if(hashTable[i]->rating <= 10)
+            temp->ranking = hashTable[i]->next->ranking;
+            if(hashTable[i]->ranking <= 10)
             {
                 vect.push_back(hashTable[i]);
                 counter++;
             }
             while(temp != NULL)
             {
-                if(temp->rating <= 10)
+                if(temp->ranking <= 10)
                 {
                     vect.push_back(temp);
 
@@ -369,26 +369,26 @@ void HashTable::printTopRated()
     if(emp == true)
         cout<<"empty"<<endl;
 
-    sortByRating(vect, vect.size());
+    sortByRanking(vect, vect.size());
 
     for(int i =0; i< vect.size(); i++)
     {
         Movie* temp = vect[i];
         cout<<"======================"<<endl;
         cout<<"Title: "<<temp->title<<endl;
-        cout<<"Rating: "<<temp->rating<<endl;
+        cout<<"Ranking: "<<temp->ranking<<endl;
         cout<<"======================"<<endl;
         cout<<endl;
     }
 }
 
-void HashTable::sortByRating(vector<Movie*> vect, int n)
+void HashTable::sortByRanking(vector<Movie*> vect, int n)
 {
      /* 
--    Prototype: void Hashtable::sortByRating(vector<Movie*> vect, int n)
+-    Prototype: void Hashtable::sortByRanking(vector<Movie*> vect, int n)
 -    Description: Takes in a vector containing the top 10 movies and will sort them into 1-10
--    Example: sortByRating(<vector>, int)
--    pre-conditions: Called in the printtopRated function
+-    Example: sortByRanking(<vector>, int)
+-    pre-conditions: Called in the printtopRanked function
 -    post-conditions: sorts vector into numerical order
 -    */
     int minIndex;
@@ -399,13 +399,13 @@ void HashTable::sortByRating(vector<Movie*> vect, int n)
         minIndex = i;
         for(int j = i + 1; j < n; j++)
         {
-            if(vect[j]->rating < vect[minIndex]->rating)
+            if(vect[j]->ranking < vect[minIndex]->ranking)
                 minIndex = j;
         }
         if(minIndex != i)
         {
             //cout<<"in if"<<endl;
-            swap(vect[i]->rating, vect[minIndex]->rating);
+            swap(vect[i]->ranking, vect[minIndex]->ranking);
             swap(vect[i]->title, vect[minIndex]->title);
         }
 

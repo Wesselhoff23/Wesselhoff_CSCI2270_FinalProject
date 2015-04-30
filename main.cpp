@@ -12,7 +12,7 @@ void PrintMenu()
     cout<<"2. Delete a movie"<<endl;
     cout<<"3. Search"<<endl;
     cout<<"4. Search by genre"<<endl;
-    cout<<"5. Top Rated"<<endl;
+    cout<<"5. Top Ranked"<<endl;
     cout<<"6. Print All Movies"<<endl;
     cout<<"7. Quit"<<endl;
 }
@@ -62,21 +62,21 @@ int main()
             string ins;
             string years;
             string genres;
-            string rate;
+            string rank;
             string quant;
             getline(cin, ins);
             cout<<"Enter year:"<<endl;
             getline(cin, years);
             cout<<"Enter genre:"<<endl;
             getline(cin, genres);
-            cout<<"Enter rating"<<endl;
-            getline(cin, rate);
+            cout<<"Enter ranking"<<endl;
+            getline(cin, rank);
             cout<<"Enter quantity"<<endl;
             getline(cin, quant);
             int yrs = atoi(years.c_str());
-            int rates = atoi(rate.c_str());
+            int ranks = atoi(rank.c_str());
             int quants = atoi(quant.c_str());
-            hashTable->insertMovie(ins, yrs, genres, rates, quants);
+            hashTable->insertMovie(ins, yrs, genres, ranks, quants);
 
         }
         else if(input == "2")
@@ -104,7 +104,7 @@ int main()
         }
         else if(input == "5")
         {
-            hashTable->printTopRated();
+            hashTable->printTopRanked();
 
         }
         else if(input == "6")
