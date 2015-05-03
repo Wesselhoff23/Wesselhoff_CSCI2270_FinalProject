@@ -50,7 +50,9 @@ class HashTable
     private:
         static const int TableSize = 10;
         Movie *hashTable[TableSize];
+        int moviesDeleted;
         //Movie *topRankedHash[10];
+
 
 };
 

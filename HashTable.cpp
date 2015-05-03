@@ -8,7 +8,7 @@ using namespace std;
 
 HashTable::HashTable()
 {
-     /* 
+     /*
 -    Prototype: Hashtable::HashTable();
 -    Description: This is the constructor method for the HashTable. It sets all the items in the hashtable to NULL or "empty"
 -    How to Call: this method is called when the class is created
@@ -22,13 +22,14 @@ HashTable::HashTable()
         hashTable[i]->title = "empty";
         hashTable[i]->next = NULL;
         hashTable[i]->genre = "empty";
+        moviesDeleted = 0;
     }
 
 }
 
 HashTable::~HashTable()
 {
-     /* 
+     /*
 -    Prototype:Thashtable:: ~HashTable();
 -    Description: This is the destructor
 -    How to Call: N/A
@@ -48,7 +49,7 @@ HashTable::~HashTable()
 
 int HashTable::hashSum(string title)
 {
-     /* 
+     /*
 -    Prototype: int Hashtable::hashSum(string);
 -    Description: Will take the titles of each movie and convert them into a hash value, then insert them into the hashtable based on that value
 -    Example: HashTable ht;
@@ -69,12 +70,12 @@ int HashTable::hashSum(string title)
 
 void HashTable::insertMovie(string in_title, int year, string in_genre, int in_ranking, int in_quantity) // done
 {
-     /* 
+     /*
 -    Prototype: void Hashtable::insertMovie(string, int, string, int, int);
 -    Description: This method is used to create the hashTable and insert values into the already created table. It also sorts the nodes in the linked lists.
 -    Example: HashTable ht;
               ht.insertMovie("Ted", 2014, Comedy, 1, 100,000,000)
--    pre-conditions: insertMovie(string, int, string, int, int), takes in only this order. 
+-    pre-conditions: insertMovie(string, int, string, int, int), takes in only this order.
 -    post-conditions: inserts the newly created node into the hashtable in the proper place
 -    */
     bool check = true;
@@ -139,14 +140,14 @@ void HashTable::insertMovie(string in_title, int year, string in_genre, int in_r
 
 Movie* HashTable::findMovie(string title) // done
 {
-     /* 
+     /*
 -    Prototype: Movie* Hashtable::findMovie(string);
--    Description: This method finds the hashsum for the input string, and searches through the linked list for the hashsum value and 
+-    Description: This method finds the hashsum for the input string, and searches through the linked list for the hashsum value and
      if the value is found, it returns the key info
 -    Example: HashTable ht;
 	      ht.findMovie("Ted")
 -    pre-conditions: takes only  string as  parameter
--    post-conditions: returns the key associated with the string 
+-    post-conditions: returns the key associated with the string
 -    */
     int index = hashSum(title);
     Movie *x = new Movie;
@@ -178,9 +179,9 @@ Movie* HashTable::findMovie(string title) // done
 
 void HashTable::deleteMovie(string in_title) // done
 {
-     /* 
--    Prototype: void Hashtable::deleteMovie(string); 
--    Description:This method finds the hashsum for the input string, and searches through the linked list for the hashsum value and 
+     /*
+-    Prototype: void Hashtable::deleteMovie(string);
+-    Description:This method finds the hashsum for the input string, and searches through the linked list for the hashsum value and
      if the value is found, it deletes the key info
 -    Example: HashTable ht;
 	      ht.deleteMovie("Ted")
@@ -192,6 +193,7 @@ void HashTable::deleteMovie(string in_title) // done
     bool found = true;
     x = hashTable[sum];
     Movie * prev = new Movie;
+    moviesDeleted++;
 
     if((in_title == x->title) && (x->next != NULL))
     {
@@ -215,11 +217,12 @@ void HashTable::deleteMovie(string in_title) // done
         }
     }
 
+
 }
 
 void HashTable::printInventory()
 {
-     /* 
+     /*
 -    Prototype: void Hashtable::printInventory()
 -    Description:prints all the movies in the hashtable
 -    Example:HashTable ht;
@@ -271,7 +274,7 @@ void HashTable::printInventory()
 
 void HashTable::printOneGenre(string genre)
 {
-     /* 
+     /*
 -    Prototype: void Hashtable::printOneGenre(string genre)
 -    Description:Prints only selected movies of the desired genre
 -    Example: HashTable ht;
@@ -329,6 +332,7 @@ void HashTable::printTopRanked()
      /* 
 -    Prototype: void Hashtable::printTopRanked()
 -    Description:will print out the top 10 ranked movies in the hashtable
+>>>>>>> pr/3
 -    Example: HashTable ht;
 	      ht.printTopRanked()
 -    pre-conditions: created hash table with movies that have been ranked
@@ -345,6 +349,7 @@ void HashTable::printTopRanked()
         {
             emp = false;
             Movie* temp = hashTable[i]->next;
+
             temp->ranking = hashTable[i]->next->ranking;
             if(hashTable[i]->ranking <= 10)
             {
@@ -353,7 +358,7 @@ void HashTable::printTopRanked()
             }
             while(temp != NULL)
             {
-                if(temp->ranking <= 10)
+                if(temp->ranking <= 10 + moviesDeleted)
                 {
                     vect.push_back(temp);
 
@@ -371,7 +376,7 @@ void HashTable::printTopRanked()
 
     sortByRanking(vect, vect.size());
 
-    for(int i =0; i< vect.size(); i++)
+    for(int i =0; i < 10; i++)
     {
         Movie* temp = vect[i];
         cout<<"======================"<<endl;
@@ -384,7 +389,7 @@ void HashTable::printTopRanked()
 
 void HashTable::sortByRanking(vector<Movie*> vect, int n)
 {
-     /* 
+
 -    Prototype: void Hashtable::sortByRanking(vector<Movie*> vect, int n)
 -    Description: Takes in a vector containing the top 10 movies and will sort them into 1-10
 -    Example: sortByRanking(<vector>, int)
