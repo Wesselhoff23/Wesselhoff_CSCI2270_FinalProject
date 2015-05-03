@@ -10,7 +10,7 @@ System Requirements: Codeblocks or Geany-this program can run on Mac, Windows, o
 
 Group Members: Dylan Edwards, Andrew Wesselhoff
 
-Contributors: Dylan Edwards, Andrew Wesselhoff
+Contributors: Dylan Edwards, Andrew Wesselhoff, Jacob Grunwald, Conor Parrish
 
 Open Issues/bugs: The SortbyRating method only swaps the title and the rating, not the entire node.
                   If one of the top 10 movies is deleted, it will only print out 9 movies. 
