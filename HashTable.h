@@ -46,11 +46,14 @@ class HashTable
         void printOneGenre(std::string genre);
         void printTopRanked();
         void sortByRanking(std::vector<Movie*> vect, int n);
+        void genreCheck(std::string);
+        void printExistingGenres();
     protected:
     private:
         static const int TableSize = 10;
         Movie *hashTable[TableSize];
         int moviesDeleted;
+        std::vector<std::string> genreTable;
         //Movie *topRankedHash[10];
 
 
