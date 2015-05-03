@@ -50,8 +50,8 @@ int main()
     }
     in.close();
 
-    string input;
-    while(input != "7")
+    int input;
+    while(input != 7)
     {
         PrintMenu();
 
