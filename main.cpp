@@ -1,7 +1,7 @@
 # include <iostream>
 # include "fstream"
 # include "HashTable.h"
-#include <windows.h>
+//#include <windows.h>
 
 
 using namespace std;
