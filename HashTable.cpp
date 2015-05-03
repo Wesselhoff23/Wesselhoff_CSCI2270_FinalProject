@@ -24,7 +24,6 @@ HashTable::HashTable()
         hashTable[i]->genre = "empty";
         moviesDeleted = 0;
     }
-
 }
 
 HashTable::~HashTable()
@@ -68,6 +67,20 @@ int HashTable::hashSum(string title)
     return sum;
 }
 
+void HashTable::genreCheck(string genre)
+{
+    /*Function to check if the genre already exists in the vector of genres and if it doesnt it inserts the genre*/
+    bool inTable = false;
+    for(vector<string>::iterator it = genreTable.begin(); it != genreTable.end(); ++it){
+        if(*it == genre){
+            inTable = true;
+            break;
+        }
+    }
+    if(!inTable)
+        genreTable.push_back(genre);
+}
+
 void HashTable::insertMovie(string in_title, int year, string in_genre, int in_ranking, int in_quantity) // done
 {
      /*
@@ -82,6 +95,10 @@ void HashTable::insertMovie(string in_title, int year, string in_genre, int in_r
     int sum = hashSum(in_title);
     Movie *m = new Movie(in_title, year, in_genre, in_ranking, in_quantity);
     Movie *x = new Movie;
+
+    //check if genre already exists and if not insert it into the table
+    genreCheck(in_genre);
+
     if(hashTable[sum]->title == "empty")
     {
         hashTable[sum]->title = in_title;
@@ -271,7 +288,13 @@ void HashTable::printInventory()
         cout<<"empty"<<endl;
 }
 
-
+void HashTable::printExistingGenres()
+{
+    cout<<"Existing genres are: ";
+    for(vector<string>::iterator it = genreTable.begin(); it != genreTable.end(); ++it)
+        cout<<*it<<", ";
+    cout<<endl;
+}
 void HashTable::printOneGenre(string genre)
 {
      /*
@@ -329,7 +352,7 @@ void HashTable::printOneGenre(string genre)
 
 void HashTable::printTopRanked()
 {
-     /* 
+     /*
 -    Prototype: void Hashtable::printTopRanked()
 -    Description:will print out the top 10 ranked movies in the hashtable
 >>>>>>> pr/3
@@ -390,7 +413,7 @@ void HashTable::printTopRanked()
 void HashTable::sortByRanking(vector<Movie*> vect, int n)
 {
 
--    Prototype: void Hashtable::sortByRanking(vector<Movie*> vect, int n)
+     /*Prototype: void Hashtable::sortByRanking(vector<Movie*> vect, int n)
 -    Description: Takes in a vector containing the top 10 movies and will sort them into 1-10
 -    Example: sortByRanking(<vector>, int)
 -    pre-conditions: Called in the printtopRanked function
