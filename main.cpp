@@ -90,34 +90,38 @@ int main()
             }
             break;
             case 3:
-        {
-            cout<<"Enter title:"<<endl;
-            string toFind;
-            getline(cin, toFind);
-            Movie* found = hashTable->findMovie(toFind);
-        }
-        case 4;
-        {
-            cout<<"Enter genre:"<<endl;
-            string gen;
-            getline(cin, gen);
-            cout<<"======Results======"<<endl;
-            cout<<endl;
-            hashTable->printOneGenre(gen);
-        }
-        case 5;
-        {
-            hashTable->printTopRanked();
-
-        }
-        case 6;
-        {
-            hashTable->printInventory();
-        }
+            {
+                cout<<"Enter title:"<<endl;
+                string toFind;
+                getline(cin, toFind);
+                Movie* found = hashTable->findMovie(toFind);
+            }
+            break;
+            case 4;
+            {
+                cout<<"Enter genre:"<<endl;
+                string gen;
+                getline(cin, gen);
+                cout<<"======Results======"<<endl;
+                cout<<endl;
+                hashTable->printOneGenre(gen);
+            }
+            break;
+            case 5;
+            {
+                hashTable->printTopRanked();
+            }
+            break;
+            case 6;
+            {
+                hashTable->printInventory();
+            }
+            break;
         case 7;
         {
             cout<<"Goodbye!"<<endl;
+            return 0;
         }
     }
-
+    return 0;
 }
