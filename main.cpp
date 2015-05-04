@@ -50,14 +50,16 @@ int main()
     }
     in.close();
 
-    string input;
-    while(input != "7")
+    int input;
+    while(input != 7)
     {
         PrintMenu();
 
         getline(cin, input);
-        if(input == "1")
-        {
+        switch(input)
+        {   
+            case 1:
+            {
             cout<<"Enter title:"<<endl;
             string ins;
             string years;
@@ -77,44 +79,49 @@ int main()
             int ranks = atoi(rank.c_str());
             int quants = atoi(quant.c_str());
             hashTable->insertMovie(ins, yrs, genres, ranks, quants);
-
-        }
-        else if(input == "2")
-        {
-            cout<<"Enter title:"<<endl;
-            string del;
-            getline(cin, del);
-            hashTable->deleteMovie(del);
-        }
-        else if(input == "3")
-        {
-            cout<<"Enter title:"<<endl;
-            string toFind;
-            getline(cin, toFind);
-            Movie* found = hashTable->findMovie(toFind);
-        }
-        else if(input == "4")
-        {
-            cout<<"Enter genre:"<<endl;
-            string gen;
-            getline(cin, gen);
-            cout<<"======Results======"<<endl;
-            cout<<endl;
-            hashTable->printOneGenre(gen);
-        }
-        else if(input == "5")
-        {
-            hashTable->printTopRanked();
-
-        }
-        else if(input == "6")
-        {
-            hashTable->printInventory();
-        }
-        else if(input == "7")
+            }
+            break;
+            case 2:
+            {
+                cout<<"Enter title:"<<endl;
+                string del;
+                getline(cin, del);
+                hashTable->deleteMovie(del);
+            }
+            break;
+            case 3:
+            {
+                cout<<"Enter title:"<<endl;
+                string toFind;
+                getline(cin, toFind);
+                Movie* found = hashTable->findMovie(toFind);
+            }
+            break;
+            case 4;
+            {
+                cout<<"Enter genre:"<<endl;
+                string gen;
+                getline(cin, gen);
+                cout<<"======Results======"<<endl;
+                cout<<endl;
+                hashTable->printOneGenre(gen);
+            }
+            break;
+            case 5;
+            {
+                hashTable->printTopRanked();
+            }
+            break;
+            case 6;
+            {
+                hashTable->printInventory();
+            }
+            break;
+        case 7;
         {
             cout<<"Goodbye!"<<endl;
+            return 0;
         }
     }
-
+    return 0;
 }

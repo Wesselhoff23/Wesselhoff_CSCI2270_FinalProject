@@ -389,7 +389,7 @@ void HashTable::printTopRanked()
 
 void HashTable::sortByRanking(vector<Movie*> vect, int n)
 {
-
+     /*
 -    Prototype: void Hashtable::sortByRanking(vector<Movie*> vect, int n)
 -    Description: Takes in a vector containing the top 10 movies and will sort them into 1-10
 -    Example: sortByRanking(<vector>, int)
