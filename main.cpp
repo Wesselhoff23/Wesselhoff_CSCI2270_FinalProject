@@ -1,6 +1,7 @@
 # include <iostream>
 # include "fstream"
 # include "HashTable.h"
+//#include <windows.h>
 
 
 using namespace std;
@@ -118,7 +119,7 @@ int main()
             }
             break;
         case 7;
-        {
+
             cout<<"Goodbye!"<<endl;
             return 0;
         }
