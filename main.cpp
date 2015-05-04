@@ -1,6 +1,7 @@
 # include <iostream>
 # include "fstream"
 # include "HashTable.h"
+//#include <windows.h>
 
 
 using namespace std;
@@ -95,6 +96,7 @@ int main()
         }
         else if(input == "4")
         {
+            hashTable->printExistingGenres();
             cout<<"Enter genre:"<<endl;
             string gen;
             getline(cin, gen);
