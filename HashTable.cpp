@@ -18,7 +18,7 @@ HashTable::HashTable()
     for(int i = 0; i< TableSize; i++)
     {
         hashTable[i] = new Movie;
-        hashTable[i]->year = NULL;
+        hashTable[i]->year = 0;
         hashTable[i]->title = "empty";
         hashTable[i]->next = NULL;
         hashTable[i]->genre = "empty";
@@ -58,7 +58,7 @@ int HashTable::hashSum(string title)
 -    */
     int sum = 0;
     char letter;
-    for(int i = 0;i<title.length();i++)
+    for(unsigned int i = 0;i<title.length();i++)
     {
         letter = title[i];
         sum = sum + (int)letter; //ascii value of ith character in the string
@@ -155,7 +155,7 @@ void HashTable::insertMovie(string in_title, int year, string in_genre, int in_r
 	}
 }
 
-Movie* HashTable::findMovie(string title) // done
+void HashTable::findMovie(string title) // done
 {
      /*
 -    Prototype: Movie* Hashtable::findMovie(string);
@@ -207,11 +207,8 @@ void HashTable::deleteMovie(string in_title) // done
 -    */
     int sum = hashSum(in_title);
     Movie* x = new Movie;
-    bool found = true;
-    x = hashTable[sum];
-    Movie * prev = new Movie;
+	x = hashTable[sum];
     moviesDeleted++;
-
     if((in_title == x->title) && (x->next != NULL))
     {
         hashTable[sum] = x->next;
@@ -222,6 +219,7 @@ void HashTable::deleteMovie(string in_title) // done
     }
     else
     {
+		Movie* prev = new Movie;
         while(x != NULL)
         {
             prev = x;
@@ -229,12 +227,12 @@ void HashTable::deleteMovie(string in_title) // done
             if(x->title == in_title)
             {
                 prev->next = x->next;
+                delete x;
                 break;
             }
         }
+		delete prev;
     }
-
-
 }
 
 void HashTable::printInventory()
@@ -363,7 +361,6 @@ void HashTable::printTopRanked()
      bool emp = true;
     int counter = 0;
     vector<Movie*> vect;
-    int n = 0;
     for(int i = 0; i< TableSize; i++)
     {
 
@@ -419,7 +416,6 @@ void HashTable::sortByRanking(vector<Movie*> vect, int n)
 -    post-conditions: sorts vector into numerical order
 -    */
     int minIndex;
-    Movie* tmp;
     //vector<Movie*> vect2;
     for(int i = 0; i < n -1; i++)
     {
