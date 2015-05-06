@@ -1,6 +1,6 @@
 #ifndef HASHTABLE_H
 #define HASHTABLE_H
-# include <vector>
+#include <vector>
 
 struct Movie{
     std::string title;
@@ -14,11 +14,11 @@ struct Movie{
     Movie()
     {
         title = "empty";
-        year = NULL;
+        year = 0;
         genre = "empty";
         next = NULL;
-        ranking = NULL;
-        quantity = NULL;
+        ranking = 0;
+        quantity = 0;
     };
 
     Movie(std::string in_title, int in_year, std::string in_genre, int in_ranking, int in_quantity)
@@ -39,7 +39,7 @@ class HashTable
         HashTable();
         ~HashTable();
         void insertMovie(std::string in_title, int year, std::string in_genre, int in_ranking, int in_quantity);
-        Movie* findMovie(std::string in_title);
+        void findMovie(std::string in_title);
         void deleteMovie(std::string in_title);
         void printInventory();
         int hashSum(std::string title);
